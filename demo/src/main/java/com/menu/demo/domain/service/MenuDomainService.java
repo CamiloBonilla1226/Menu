@@ -1,13 +1,13 @@
 package com.menu.demo.domain.service;
 
-import org.springframework.stereotype.Service;
+
 
 import com.menu.demo.domain.Menu;
 import com.menu.demo.domain.value_objects.DishMenu;
 import com.menu.demo.domain.value_objects.IngredientDish;
 import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNullException;
 
-@Service
+
 public class MenuDomainService implements IMenuDomainService {
 
     @Override

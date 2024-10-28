@@ -30,4 +30,5 @@ public class MapperMenuInfrastructureDomainImplAdapter implements MapperMenuInfr
     public List<MenuDTOResponse> mapModelToResponse(List<Menu> menus) {
         return this.mapper.map(menus, new TypeToken<List<MenuDTOResponse>>(){}.getType());
     }
+
 }

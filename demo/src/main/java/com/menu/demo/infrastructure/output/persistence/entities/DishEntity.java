@@ -32,8 +32,6 @@ public class DishEntity {
     )
     private List<IngredientEntity> ingredients;
     
-    private double price;
-
     public DishEntity(){
         this.ingredients = new ArrayList<>();
     }

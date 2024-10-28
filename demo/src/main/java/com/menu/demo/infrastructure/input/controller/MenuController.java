@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,13 +71,13 @@ public class MenuController {
             this.mapper.mapModelToResponse(menu), HttpStatus.OK);
     }
     
-  // @PutMapping("/{idMenu}/{state}")
-  // public ResponseEntity<MenuDTOResponse> updateOrderState(@PathVariable String idOrder, 
-  //                                             @PathVariable int state){
-  //     Menu menu = this.menuUC.updateOrderState(idOrder, state);
-  //     return new ResponseEntity<MenuDTOResponse>(
-  //         this.mapper.mapModelToResponse(menu), HttpStatus.OK);
-  // }
+    
+    @PutMapping("/{idMenu}")
+    public ResponseEntity<MenuDTOResponse> updateMenu(@PathVariable String idMenu, @RequestBody Menu newMenu) {
+        Menu updatedMenu = this.menuUC.updateMenu(idMenu, newMenu);
+        return new ResponseEntity<MenuDTOResponse>(
+            this.mapper.mapModelToResponse(updatedMenu), HttpStatus.OK);
+    }
 
 
 }

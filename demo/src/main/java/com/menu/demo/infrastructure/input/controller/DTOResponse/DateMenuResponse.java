@@ -8,8 +8,6 @@ import lombok.Data;
 public class DateMenuResponse {
     private String id_date;
     private String date;
-    private String hour;
-
     public DateMenuResponse(){
         
     }

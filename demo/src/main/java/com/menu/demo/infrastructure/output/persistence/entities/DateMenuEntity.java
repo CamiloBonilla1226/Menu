@@ -12,8 +12,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
-@Table(name = "order_dates")
+@Table(name = "menu_dates")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,11 +22,10 @@ public class DateMenuEntity {
     @Id
     @Column(length = 200)
     private String id_date;
-    private String date;
-    private String hour;
-
+    private String date;  
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    @JoinColumn(name = "id_order")
-    private MenuEntity objOrder;
+    @JoinColumn(name = "id_menu")
+    private MenuEntity objMenu;
+    
 }

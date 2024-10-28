@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import com.menu.demo.application.output.ManageMenuGatewayIntPort;
 import com.menu.demo.domain.Menu;
 import com.menu.demo.infrastructure.output.persistence.entities.MenuEntity;
-import com.menu.demo.infrastructure.output.persistence.repositories.OrderRepository;
+import com.menu.demo.infrastructure.output.persistence.repositories.MenuRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class ManageMenuGatewayImplAdapter implements ManageMenuGatewayIntPort {
-    private final OrderRepository bd;
+    private final MenuRepository bd;
     private final ModelMapper mapper;
   
     @Override

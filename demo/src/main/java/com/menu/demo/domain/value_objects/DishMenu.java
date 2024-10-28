@@ -4,13 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.UUID;
 
+import com.menu.demo.domain.Menu;
 import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNotFoundException;
 import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNullException;
 
 import java.util.ArrayList;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class DishMenu {
@@ -18,6 +21,7 @@ public class DishMenu {
     private String name; 
     private List<IngredientDish> ingredients;
     private double price;
+    private Menu objMenu;
 
     public DishMenu(String name, double price) {
         this.id = UUID.randomUUID().toString();

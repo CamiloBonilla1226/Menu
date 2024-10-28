@@ -1,5 +1,6 @@
 package com.menu.demo.domain.useCases;
 
+
 import java.util.List;
 
 import com.menu.demo.application.input.ManageMenuUCIntPort;
@@ -7,6 +8,7 @@ import com.menu.demo.application.output.ExceptionFormatterIntPort;
 import com.menu.demo.application.output.ManageMenuGatewayIntPort;
 import com.menu.demo.domain.Menu;
 import com.menu.demo.domain.service.MenuDomainService;
+
 import com.menu.demo.domain.value_objects.DishMenu;
 
 
@@ -23,12 +25,6 @@ public class ManageMenuUCImplAdapter implements ManageMenuUCIntPort{
         this.formatter = formatter;
     }
 
-
-    
-
-   
-
-
  
     @Override
     public List<Menu> getMenus() {
@@ -43,21 +39,34 @@ public class ManageMenuUCImplAdapter implements ManageMenuUCIntPort{
         return this.gateway.findById(idMenu);
     }
 
- 
     @Override
     public Menu createMenu() {
-      //  Menu menu = new Menu();
+        Menu menu = new Menu();
+        menu.getDate().setObjMenu(menu);
+       
         
-        
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createMenu'");
+        Menu response = this.gateway.save(menu);
+        return response;
     }
+    
 
     @Override
-    public Menu updateMenu(String idMenu, Menu newMenu) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateMenu'");
+public Menu updateMenu(String idMenu, Menu newMenu) {
+    if (!this.gateway.existsById(idMenu)) {
+        formatter.responseEntityNotFound("Menu not found...");
     }
+
+    Menu existingMenu = this.gateway.findById(idMenu);
+
+    // Actualiza los datos del menú actual con los del nuevo menú
+    existingMenu.setDishes(newMenu.getDishes());
+    existingMenu.setDate(newMenu.getDate());
+
+    Menu updatedMenu = this.gateway.save(existingMenu);
+    return updatedMenu;
+}
+
+    
 
 
     @Override

@@ -23,8 +23,8 @@ public class Menu {
         this.date = new DateMenu();
         this.dishes = new ArrayList<>(); 
     }
-    public Menu(String id, List<DishMenu> dishes, DateMenu date) {
-        this.id = id;
+    public Menu( List<DishMenu> dishes, DateMenu date) {
+        
         this.dishes = dishes;
         this.date = date;
     }

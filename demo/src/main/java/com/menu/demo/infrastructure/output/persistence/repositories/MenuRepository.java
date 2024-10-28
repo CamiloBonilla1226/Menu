@@ -7,6 +7,6 @@ import com.menu.demo.infrastructure.output.persistence.entities.MenuEntity;
 
 
 @Repository
-public interface OrderRepository extends JpaRepository<MenuEntity, String>{
+public interface MenuRepository extends JpaRepository<MenuEntity, String>{
     
 }
