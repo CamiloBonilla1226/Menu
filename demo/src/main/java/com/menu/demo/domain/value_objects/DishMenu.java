@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.UUID;
 
-import  com.menu.demo.infrastucture.exceptionHandler.ownException.ObjectNotFoundException;
-import  com.menu.demo.infrastucture.exceptionHandler.ownException.ObjectNullException;
+import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNotFoundException;
+import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNullException;
 
 import java.util.ArrayList;
 import lombok.NoArgsConstructor;

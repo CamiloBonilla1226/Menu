@@ -4,13 +4,15 @@ import java.util.UUID;
 
 import com.menu.demo.domain.value_objects.DateMenu;
 import com.menu.demo.domain.value_objects.DishMenu;
-import com.menu.demo.infrastucture.exceptionHandler.ownException.ObjectNullException;
-import com.menu.demo.infrastucture.exceptionHandler.ownException.ObjectNotFoundException;
+import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNotFoundException;
+import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectNullException;
 
 import java.util.ArrayList;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class Menu {
     private String id;
     private List<DishMenu> dishes;
