@@ -1,5 +1,5 @@
 services:
-  mysql:
+  menu_db:
     image: 'mysql:latest'
     environment:
       - 'MYSQL_DATABASE=menu'

@@ -1,4 +1,5 @@
 package com.menu.demo.domain;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -18,11 +19,12 @@ public class Menu {
     private List<DishMenu> dishes;
     private DateMenu objDate;
 
-    public Menu(){
-        this.id =  UUID.randomUUID().toString();
+    public Menu() {
+        this.id = UUID.randomUUID().toString();
         this.objDate = new DateMenu();
-        this.dishes = new ArrayList<>(); 
+        this.dishes = new ArrayList<>();
     }
+
     public Menu(String id, List<DishMenu> dishes, DateMenu objDate) {
         this.id = id;
         this.dishes = dishes;
@@ -30,21 +32,21 @@ public class Menu {
     }
 
     public boolean addDish(DishMenu dish) {
-        if (this.dishes == null) 
+        if (this.dishes == null)
             throw new ObjectNullException("Dish list is null...");
-        if (dish == null) 
+        if (dish == null)
             throw new ObjectNullException("Dish is null...");
         return this.dishes.add(dish);
     }
 
     public boolean removeDish(String id) {
-        if (this.dishes == null) 
+        if (this.dishes == null)
             throw new ObjectNullException("Dish list is null...");
-        if (id.isBlank()) 
+        if (id.isBlank())
             throw new ObjectNullException("Dish ID is null...");
         for (int i = 0; i < this.dishes.size(); i++) {
             DishMenu dish = this.dishes.get(i);
-            if (dish.getId().equals(id)) {
+            if (dish.getId_dish().equals(id)) {
                 this.dishes.remove(i);
                 return true;
             }
@@ -53,11 +55,3 @@ public class Menu {
     }
 
 }
-
-
-
-
-
-
-
-

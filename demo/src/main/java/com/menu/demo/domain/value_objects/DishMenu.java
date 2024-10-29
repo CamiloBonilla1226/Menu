@@ -18,14 +18,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DishMenu {
-    private String id;
+    private String id_dish;
     private String name;
     private List<IngredientDish> ingredients;
     private double price;
     private Menu menu;
 
     public DishMenu(String name, double price) {
-        this.id = UUID.randomUUID().toString();
+        this.id_dish = UUID.randomUUID().toString();
         this.name = name;
         this.price = price;
         this.ingredients = new ArrayList<>();
