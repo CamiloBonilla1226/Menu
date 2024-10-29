@@ -37,7 +37,7 @@ public class MenuDomainService implements IMenuDomainService {
         if(menu == null)
             throw new ObjectNullException("Menu is null...");
 
-        return menu.getDate().getDate();
+        return menu.getObjDate().getDate();
     }
 
     @Override

@@ -16,17 +16,17 @@ import lombok.Setter;
 public class Menu {
     private String id;
     private List<DishMenu> dishes;
-    private DateMenu date;
+    private DateMenu objDate;
 
     public Menu(){
         this.id =  UUID.randomUUID().toString();
-        this.date = new DateMenu();
+        this.objDate = new DateMenu();
         this.dishes = new ArrayList<>(); 
     }
-    public Menu( List<DishMenu> dishes, DateMenu date) {
-        
+    public Menu(String id, List<DishMenu> dishes, DateMenu objDate) {
+        this.id = id;
         this.dishes = dishes;
-        this.date = date;
+        this.objDate = objDate;
     }
 
     public boolean addDish(DishMenu dish) {

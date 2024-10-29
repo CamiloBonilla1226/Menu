@@ -1,4 +1,5 @@
 package com.menu.demo.domain.value_objects;
+
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +18,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DishMenu {
-    private String id; 
-    private String name; 
+    private String id;
+    private String name;
     private List<IngredientDish> ingredients;
     private double price;
-    private Menu objMenu;
+    private Menu menu;
 
     public DishMenu(String name, double price) {
         this.id = UUID.randomUUID().toString();
@@ -44,22 +45,21 @@ public class DishMenu {
     }
 
     public boolean removeIngredient(String id) {
-    if (this.ingredients == null) {
-        throw new ObjectNullException("Ingredients list is null...");
-    }
-
-    if (id == null || id.isBlank()) {
-        throw new ObjectNullException("Ingredient's id is null or blank...");
-    }
-
-    for (int i = 0; i < this.ingredients.size(); i++) {
-        if (this.ingredients.get(i).getId().equals(id)) {
-            this.ingredients.remove(i);
-            return true;
+        if (this.ingredients == null) {
+            throw new ObjectNullException("Ingredients list is null...");
         }
-    }
-    throw new ObjectNotFoundException("Ingredient with id: " + id + " was not found...");
-}
 
+        if (id == null || id.isBlank()) {
+            throw new ObjectNullException("Ingredient's id is null or blank...");
+        }
+
+        for (int i = 0; i < this.ingredients.size(); i++) {
+            if (this.ingredients.get(i).getId().equals(id)) {
+                this.ingredients.remove(i);
+                return true;
+            }
+        }
+        throw new ObjectNotFoundException("Ingredient with id: " + id + " was not found...");
+    }
 
 }

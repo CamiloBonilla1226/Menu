@@ -41,13 +41,16 @@ public class ManageMenuUCImplAdapter implements ManageMenuUCIntPort{
 
     @Override
     public Menu createMenu() {
-        Menu menu = new Menu();
-        menu.getDate().setObjMenu(menu);
-       
-        
-        Menu response = this.gateway.save(menu);
-        return response;
+        // Crea una nueva instancia de Menu usando el constructor por defecto
+        Menu newMenu = new Menu();
+        newMenu.getObjDate().setObjMenu(newMenu);
+        // Guarda la instancia de Menu en la base de datos usando el gateway
+        Menu savedMenu = this.gateway.save(newMenu);
+
+        // Retorna el menú recién creado y guardado
+        return savedMenu;
     }
+
     
 
     @Override
@@ -60,14 +63,13 @@ public Menu updateMenu(String idMenu, Menu newMenu) {
 
     // Actualiza los datos del menú actual con los del nuevo menú
     existingMenu.setDishes(newMenu.getDishes());
-    existingMenu.setDate(newMenu.getDate());
+    existingMenu.setObjDate(newMenu.getObjDate());
 
     Menu updatedMenu = this.gateway.save(existingMenu);
     return updatedMenu;
 }
 
     
-
 
     @Override
     public Menu addDish(String idMenu, String dishName, double dishValue) {
@@ -80,7 +82,7 @@ public Menu updateMenu(String idMenu, Menu newMenu) {
         this.domainService.addDish(menu, dish);
         
         Menu response = this.gateway.save(menu);
-    return response;
+        return response;
     }
 
 

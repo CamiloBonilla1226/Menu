@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,16 +24,15 @@ public class DishEntity {
     @Column(length = 200)
     private String id_dish;
     private String name;
-
+    private Double price;
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "dish_ingredients",
-        joinColumns = @JoinColumn(name = "id_dish"),
-        inverseJoinColumns = @JoinColumn(name = "id_ingredient")
-    )
+    @JoinTable(name = "dish_ingredients", joinColumns = @JoinColumn(name = "id_dish"), inverseJoinColumns = @JoinColumn(name = "id_ingredient"))
     private List<IngredientEntity> ingredients;
-    
-    public DishEntity(){
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_menu", nullable = false)
+    private MenuEntity menu;
+
+    public DishEntity() {
         this.ingredients = new ArrayList<>();
     }
 

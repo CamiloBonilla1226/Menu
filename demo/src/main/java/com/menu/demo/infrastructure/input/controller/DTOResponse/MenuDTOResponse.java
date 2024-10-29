@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class MenuDTOResponse {
-    private String id_menu;
+    private String id;
     private DateMenuResponse date; 
     private List<DishDTOResponse> dishes;
    

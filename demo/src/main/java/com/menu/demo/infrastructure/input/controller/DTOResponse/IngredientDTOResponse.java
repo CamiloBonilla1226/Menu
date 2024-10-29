@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class IngredientDTOResponse {
-    private String id;
+    private String id_date;
     private String name;
 
     public IngredientDTOResponse(){

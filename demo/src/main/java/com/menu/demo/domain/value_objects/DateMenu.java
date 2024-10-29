@@ -14,8 +14,10 @@ import com.menu.demo.infrastructure.output.exceptionHandler.ownException.ObjectN
 @Getter
 @Setter
 public class DateMenu {
+
     private String date;
-    private Menu objMenu; // no se
+    private Menu objMenu;
+    
 
     public DateMenu() {
         createMenuDate();
